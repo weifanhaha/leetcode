@@ -25,3 +25,4 @@ class Solution:
                 if len(level) > 0:
                     level.append(None)
 
+        return root

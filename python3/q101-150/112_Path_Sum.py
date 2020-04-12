@@ -13,9 +13,8 @@ def deserialize(string):
                 node.right = kids.pop()
     return root
 
+
 # Definition for a binary tree node.
-
-
 class TreeNode:
     def __init__(self, x):
         self.val = x

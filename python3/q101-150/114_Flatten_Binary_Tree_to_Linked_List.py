@@ -20,5 +20,6 @@ class Solution:
         self.flatten(root.right)
         self.flatten(root.left)
 
-        root.right = prev
+        root.right = self.prev
+        root.left = None
         self.prev = root
