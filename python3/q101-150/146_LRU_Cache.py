@@ -23,7 +23,7 @@ class LRUCache:
         if key in self.cache:
             self.cache.pop(key)
         elif len(self.cache) >= self.capacity:
-            self.cache.pop(last=False)
+            self.cache.popitem(last=False)
 
         self.cache[key] = value
 
