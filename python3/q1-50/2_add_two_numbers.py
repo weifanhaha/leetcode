@@ -7,36 +7,52 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        dummy = curr = ListNode(0)
+        carry = 0
+        while l1 or l2 or carry:
+            if l1:
+                carry += l1.val
+                l1 = l1.next
+            if l2:
+                carry += l2.val
+                l2 = l2.next
+            curr.next = ListNode(carry % 10)
+            curr = curr.next
+            carry //= 10
 
-        ref1 = l1
-        ref2 = l2
-        root = ListNode(0)
-        ref = root
-        add_one = False
+        return dummy.next
 
-        while ref1 or ref2:
-            val = 0
-            if ref1:
-                val += ref1.val
-                ref1 = ref1.next
-            if ref2:
-                val += ref2.val
-                ref2 = ref2.next
+    # def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
 
-            if add_one:
-                val += 1
-            if val > 9:
-                val -= 10
-                add_one = True
-            else:
-                add_one = False
-            ref.next = ListNode(val)
+    #     ref1 = l1
+    #     ref2 = l2
+    #     root = ListNode(0)
+    #     ref = root
+    #     add_one = False
 
-            ref = ref.next
-        if add_one:
-            ref.next = ListNode(1)
+    #     while ref1 or ref2:
+    #         val = 0
+    #         if ref1:
+    #             val += ref1.val
+    #             ref1 = ref1.next
+    #         if ref2:
+    #             val += ref2.val
+    #             ref2 = ref2.next
 
-        return root.next
+    #         if add_one:
+    #             val += 1
+    #         if val > 9:
+    #             val -= 10
+    #             add_one = True
+    #         else:
+    #             add_one = False
+    #         ref.next = ListNode(val)
+
+    #         ref = ref.next
+    #     if add_one:
+    #         ref.next = ListNode(1)
+
+    #     return root.next
 
         # Need to handle integer overflow
         # ans = 0
